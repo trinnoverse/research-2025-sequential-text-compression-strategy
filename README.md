@@ -15,18 +15,23 @@ The project is organized as follows:
 
 ```
 .
+├── assets/
+│   ├── diagram.drawio             # Diagrams for the paper.
 ├── compressors/
+│   ├── abbreviations.py           # Contracts words into abbreviations.
+│   ├── duplicate_words.py         # Removes consecutive repeated words in the text.
+│   ├── frequent_words.py          # Replaces predefined frequent words or phrases.
 │   ├── lemmatization.py           # Applies lemmatization to reduce words to their base form.
+│   ├── normalizer.py              # Normalizes text (e.g., lowercasing, punctuation removal).
 │   ├── stemming.py                # Applies stemming to reduce words to their root form.
 │   ├── stop_word_removal.py       # Removes common stop words from the text.
-│   ├── synonym_substitution.py    # Replaces words with synonyms, if the synonym is shorter.
-│   ├── normalizer.py              # Normalizes text (e.g., lowercasing, punctuation removal).
-│   ├── frequent_word_replacement.py  # Replaces predefined frequent words or phrases.
-│   ├── repeated_word_removal.py   # Removes consecutive repeated words in the text.
-│   ├── abbreviation_contraction.py # Contracts words into abbreviations.
+│   ├── synonym_replacement.py    # Replaces words with synonyms, if the synonym is shorter.
 ├── auxiliars/
+│   ├── downloads.py               # Aditional downloads (corpus, dictionaries, etc,) for nltk library.
 │   ├── tokenizer.py               # Tokenizes and decodes text using the tiktoken library.
 │   ├── llm.py                     # Uses OpenAI's API to generate responses (model and API key are parametrized).
+├── results/
+│   ├── **.txt                     # Path where the results are set.
 ├── index.py                       # Orchestrator: applies each compression technique sequentially.
 ├── requirements.txt               # Python dependencies for the project.
 ├── .env                           # Environment variables for OpenAI API key and model (not included in repository).
@@ -43,7 +48,7 @@ First, create and activate a Python virtual environment:
 
 ```bash
 # Linux/Mac
-python3 -m venv virtual-env
+python -m venv virtual-env
 source virtual-env/bin/activate
 
 # Windows
@@ -65,7 +70,7 @@ Ensure you have an `.env` file in the root directory to store your environment v
 
 ```
 OPENAI_API_KEY=your-openai-api-key
-MODEL=gpt-3.5-turbo
+MODEL_LLM=gpt-3.5-turbo
 ```
 
 ### 4. Run the Code
