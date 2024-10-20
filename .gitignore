@@ -16,3 +16,4 @@ virtual-env/
 .idea/
 
 # Ignore any other files you want to exclude
+output.txt
