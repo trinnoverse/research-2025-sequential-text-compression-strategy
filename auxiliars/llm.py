@@ -7,7 +7,6 @@ MODEL = os.environ.get("LLM_MODEL")
 
 
 client = OpenAI(
-    # This is the default and can be omitted
     api_key=API_KEY
 )
 
@@ -28,10 +27,9 @@ def call_llm(text: str):
                 "content": text,
             }
         ],
-        model=MODEL,
+        model=MODEL
     )
     response_message = chat_completion.choices[0].message.content
-    print(response_message )
     return response_message
 
 

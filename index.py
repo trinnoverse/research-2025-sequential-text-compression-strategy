@@ -1,23 +1,32 @@
 from compressors.lemmatization import lemmatization
 from compressors.stemming import stemming
 from compressors.stop_word_removal import stop_word_removal
-from compressors.synonym_substitution import synonym_substitution
+from compressors.synonym_replacement import synonym_replacement
 from compressors.normalizer import normalizer
+from compressors.frequent_words import frequent_words_replacement
+from compressors.duplicate_words import duplicate_words_removal
+from compressors.abbreviations import text_abbreviation
 from auxiliars.tokenizer import tokenize
 from auxiliars.llm import call_llm
+# from dotenv import load_dotenv
+# load_dotenv()
 
 # Input text to be processed
-INPUT_TEXT = "I want to know who was the first novel prize of literature."
+INPUT_TEXT = "Hello, good morning. I'm writing because I want to schedule an appointment with the doctor next week."
 
 # Order of compressors to apply
 COMPRESSORS = [
+    text_abbreviation,
     normalizer,
     stop_word_removal,
+    synonym_replacement,
+    frequent_words_replacement,
     # stemming,
     lemmatization,
-    synonym_substitution
+    duplicate_words_removal,
 ]
-
+#  hi writing want agenda appointment doctor next week
+# hi writing want agenda appt dr next week
 def main():
     """Main function to orchestrate the processing of the input text.
     
@@ -31,15 +40,15 @@ def main():
         text = compressor(text)
         
         # Tokenization
-        tokens = tokenize(text)
+        tokens = tokenize(text,True)
         
         print(f"Output: {text}")
         print(f"Tokens: {tokens}")
         print(f"Number of tokens: {len(tokens)}")
         
     # Optional: Call to LLM (uncomment to use)
-    call_llm(text)
-    # print(f"LLM Response: {response}")
+    # llm_response=call_llm(text)
+    # print(f"LLM Response: {llm_response}")
 
 if __name__ == "__main__":
     main()

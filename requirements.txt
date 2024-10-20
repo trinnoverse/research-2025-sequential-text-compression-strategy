@@ -1,3 +1,4 @@
 nltk
 tiktoken
 openai
+load_dotenv
