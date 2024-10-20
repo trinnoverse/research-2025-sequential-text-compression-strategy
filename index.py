@@ -8,8 +8,6 @@ from compressors.duplicate_words import duplicate_words_removal
 from compressors.abbreviations import text_abbreviation
 from auxiliars.tokenizer import tokenize
 from auxiliars.llm import call_llm
-# from dotenv import load_dotenv
-# load_dotenv()
 
 # Input text to be processed
 INPUT_TEXT = "Hello, good morning. I'm writing because I want to schedule an appointment with the doctor next week."
@@ -25,6 +23,10 @@ COMPRESSORS = [
     lemmatization,
     duplicate_words_removal,
 ]
+
+# Output file
+output_file = "output.txt"
+
 #  hi writing want agenda appointment doctor next week
 # hi writing want agenda appt dr next week
 def main():
@@ -33,22 +35,27 @@ def main():
     It applies a series of text transformation functions in the order defined in the COMPRESSORS list,
     tokenizes the result, and prints the input, output, tokens, and number of tokens at each step.
     """
-    text = INPUT_TEXT
-    
-    for compressor in COMPRESSORS:
-        print(f"Input: {text}")
-        text = compressor(text)
-        
-        # Tokenization
-        tokens = tokenize(text,True)
-        
-        print(f"Output: {text}")
-        print(f"Tokens: {tokens}")
-        print(f"Number of tokens: {len(tokens)}")
-        
-    # Optional: Call to LLM (uncomment to use)
-    # llm_response=call_llm(text)
-    # print(f"LLM Response: {llm_response}")
+    with open(output_file, "w") as f:
 
+        text = INPUT_TEXT
+        
+        for compressor in COMPRESSORS:
+            f.write(f"Input: {text}\n")
+            f.write(f"Compressor: {compressor.__name__}\n")
+            
+            text = compressor(text)
+            
+            # Tokenization
+            tokens = tokenize(text,True)
+            
+            f.write(f"Output: {text}\n")
+            f.write(f"Tokens: {tokens}\n")
+            f.write(f"Number of tokens: {len(tokens)}\n")
+            
+            # Optional: Call to LLM (uncomment to use)
+            llm_response=call_llm(text)
+            f.write(f"LLM Response: {llm_response}\n")
+
+            f.write(f"\n\n")
 if __name__ == "__main__":
     main()

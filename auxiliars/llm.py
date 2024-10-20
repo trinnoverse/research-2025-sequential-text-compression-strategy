@@ -23,6 +23,10 @@ def call_llm(text: str):
     chat_completion = client.chat.completions.create(
         messages=[
             {
+                "role": "system",
+                "content": "I want you to identify Intention,feeling,context,tone, and Urgency with the % of confidence you have for each one. Give me de answer of each one max 3 words",
+            },
+            {
                 "role": "user",
                 "content": text,
             }
