@@ -1,0 +1,18 @@
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore virtual environment directory
+virtual-env/
+
+# Ignore environment variables file
+.env
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore IDE/editor-specific files
+.vscode/
+.idea/
+
+# Ignore any other files you want to exclude
