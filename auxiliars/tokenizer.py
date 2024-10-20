@@ -3,7 +3,7 @@ import tiktoken
 
 MODEL = os.environ.get("LLM_MODEL")
 
-def tokenize(text: str,return_decoded:true):
+def tokenize(text: str,return_decoded:bool):
     """Tokenizes the input text into tokens using the tiktoken library.
     
     Args:
