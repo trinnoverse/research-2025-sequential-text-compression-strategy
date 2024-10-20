@@ -1,9 +1,11 @@
+from dotenv import load_dotenv
 import os
 from openai import OpenAI
+load_dotenv()
 
 # Configuration for the OpenAI API (set your API key and model here)
 API_KEY = os.environ.get("OPENAI_API_KEY")
-MODEL = os.environ.get("LLM_MODEL")
+MODEL = os.environ.get("MODEL_LLM")
 
 
 client = OpenAI(

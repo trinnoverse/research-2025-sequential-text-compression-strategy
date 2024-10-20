@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+import os
+
 from compressors.lemmatization import lemmatization
 from compressors.stemming import stemming
 from compressors.stop_word_removal import stop_word_removal
@@ -9,23 +12,26 @@ from compressors.abbreviations import text_abbreviation
 from auxiliars.tokenizer import tokenize
 from auxiliars.llm import call_llm
 
+load_dotenv()
+
+
 # Input text to be processed
 INPUT_TEXT = "Hello, good morning. I'm writing because I want to schedule an appointment with the doctor next week."
 
 # Order of compressors to apply
 COMPRESSORS = [
-    text_abbreviation,
-    normalizer,
-    stop_word_removal,
-    synonym_replacement,
-    frequent_words_replacement,
-    # stemming,
-    lemmatization,
-    duplicate_words_removal,
+    # text_abbreviation,
+    # normalizer,
+    # stop_word_removal,
+    # synonym_replacement,
+    # frequent_words_replacement,
+    # # stemming,
+    # lemmatization,
+    # duplicate_words_removal,
 ]
 
 # Output file
-output_file = "output.txt"
+output_file = f"output_{os.environ.get('MODEL_LLM')}_complemento.txt"
 
 #  hi writing want agenda appointment doctor next week
 # hi writing want agenda appt dr next week
@@ -49,12 +55,12 @@ def main():
             tokens = tokenize(text,True)
             
             f.write(f"Output: {text}\n")
-            f.write(f"Tokens: {tokens}\n")
+            f.write(f"Tokens: {'   #'.join(tokens)}\n")
             f.write(f"Number of tokens: {len(tokens)}\n")
-            
+
             # Optional: Call to LLM (uncomment to use)
             llm_response=call_llm(text)
-            f.write(f"LLM Response: {llm_response}\n")
+            f.write(f"LLM Multidimensional evaluation: \n{llm_response}\n")
 
             f.write(f"\n\n")
 if __name__ == "__main__":

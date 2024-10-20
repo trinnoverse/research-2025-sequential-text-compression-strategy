@@ -1,7 +1,9 @@
+from dotenv import load_dotenv
 import os
 import tiktoken
+load_dotenv()
 
-MODEL = os.environ.get("LLM_MODEL")
+MODEL = os.environ.get("MODEL_LLM")
 
 def tokenize(text: str,return_decoded:bool):
     """Tokenizes the input text into tokens using the tiktoken library.
