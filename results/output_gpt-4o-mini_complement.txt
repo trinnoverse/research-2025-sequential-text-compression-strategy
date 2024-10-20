@@ -1,0 +1,12 @@
+Input: Hello, good morning. I'm writing because I want to schedule an appointment with the doctor next week.
+Output: Hello, good morning. I'm writing because I want to schedule an appointment with the doctor next week.
+Tokens: Hello   #,   # good   # morning   #.   # I'm   # writing   # because   # I   # want   # to   # schedule   # an   # appointment   # with   # the   # doctor   # next   # week   #.
+Number of tokens: 20
+LLM Multidimensional evaluation: 
+Intention: Schedule appointment (90%)  
+Feeling: Neutral (85%)  
+Context: Healthcare (90%)  
+Tone: Polite (88%)  
+Urgency: Low (75%)
+
+

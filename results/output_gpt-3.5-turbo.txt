@@ -1,0 +1,136 @@
+Input: Hello, good morning. I'm writing because I want to schedule an appointment with the doctor next week.
+Compressor: text_abbreviation
+Output: Hello, good morning. I'm writing because I want to sched. an appt. with the Dr. next week.
+Tokens: Hello   #,   # good   # morning   #.   # I   #'m   # writing   # because   # I   # want   # to   # sched   #.   # an   # ap   #pt   #.   # with   # the   # Dr   #.   # next   # week   #.
+Number of tokens: 25
+LLM Multidimensional evaluation: 
+Intention: Appointment scheduling - 100%
+Feeling: Neutral - 80%
+Context: Medical - 100%
+Tone: Formal - 90%
+Urgency: Low - 70%
+
+
+Input: Hello, good morning. I'm writing because I want to sched. an appt. with the Dr. next week.
+Compressor: normalizer
+Output: hello good morning i m writing because i want to sched an appt with the dr next week
+Tokens: hello   # good   # morning   # i   # m   # writing   # because   # i   # want   # to   # sched   # an   # ap   #pt   # with   # the   # dr   # next   # week
+Number of tokens: 19
+LLM Multidimensional evaluation: 
+Intention: Schedule appointment (95%)
+Feeling: Neutral (90%)
+Context: Medical issue (95%)
+Tone: Polite (90%)
+Urgency: Medium (80%)
+
+
+Input: hello good morning i m writing because i want to sched an appt with the dr next week
+Compressor: stop_word_removal
+Output: hello good morning writing want sched appt dr next week
+Tokens: hello   # good   # morning   # writing   # want   # sched   # ap   #pt   # dr   # next   # week
+Number of tokens: 11
+LLM Multidimensional evaluation: 
+Intention: Scheduling appointment 
+Confidence: 100%
+
+Feeling: neutral
+Confidence: 80%
+
+Context: morning
+Confidence: 90%
+
+Tone: polite
+Confidence: 95%
+
+Urgency: next week
+Confidence: 100%
+
+
+Input: hello good morning writing want sched appt dr next week
+Compressor: synonym_replacement
+Output: hello good morning writing want sched appt dr next week
+Tokens: hello   # good   # morning   # writing   # want   # sched   # ap   #pt   # dr   # next   # week
+Number of tokens: 11
+LLM Multidimensional evaluation: 
+Intention: Scheduling appointment
+Confidence: 100%
+
+Feeling: Neutral
+Confidence: 100%
+
+Context: Medical appointment
+Confidence: 100%
+
+Tone: Polite
+Confidence: 100%
+
+Urgency: Moderate
+Confidence: 90%
+
+
+Input: hello good morning writing want sched appt dr next week
+Compressor: frequent_words_replacement
+Output: hi hi writing want sched appt dr next week
+Tokens: hi   # hi   # writing   # want   # sched   # ap   #pt   # dr   # next   # week
+Number of tokens: 10
+LLM Multidimensional evaluation: 
+Intention: Schedule appointment
+Confidence: 95%
+
+Feeling: Neutral
+Confidence: 90%
+
+Context: Doctor appointment
+Confidence: 100%
+
+Tone: Casual
+Confidence: 80%
+
+Urgency: Next week
+Confidence: 90%
+
+
+Input: hi hi writing want sched appt dr next week
+Compressor: lemmatization
+Output: hi hi writing want sched appt dr next week
+Tokens: hi   # hi   # writing   # want   # sched   # ap   #pt   # dr   # next   # week
+Number of tokens: 10
+LLM Multidimensional evaluation: 
+Intention: schedule appointment
+Confidence: 95%
+
+Feeling: neutral
+Confidence: 80%
+
+Context: medical appointment with a doctor
+Confidence: 90%
+
+Tone: casual
+Confidence: 85%
+
+Urgency: next week
+Confidence: 90%
+
+
+Input: hi hi writing want sched appt dr next week
+Compressor: duplicate_words_removal
+Output: hi writing want sched appt dr next week
+Tokens: hi   # writing   # want   # sched   # ap   #pt   # dr   # next   # week
+Number of tokens: 9
+LLM Multidimensional evaluation: 
+Intention: Scheduling appointment
+Confidence: 100%
+
+Feeling: Neutral
+Confidence: 100%
+
+Context: Seeking medical appointment
+Confidence: 100%
+
+Tone: Direct
+Confidence: 100%
+
+Urgency: Moderate
+Confidence: 100%
+
+

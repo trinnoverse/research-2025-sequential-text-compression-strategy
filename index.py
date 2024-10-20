@@ -31,7 +31,7 @@ COMPRESSORS = [
 ]
 
 # Output file
-output_file = f"output_{os.environ.get('MODEL_LLM')}_complemento.txt"
+output_file = f"results/output_{os.environ.get('MODEL_LLM')}.txt"
 
 #  hi writing want agenda appointment doctor next week
 # hi writing want agenda appt dr next week
