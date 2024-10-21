@@ -1,5 +1,5 @@
 
-# Text Compression Techniques for NLP
+# Sequential Text Compression Strategy: A Study of NLP and Data Cleaning Preprocessing Tasks For Optimizing Token Utilization in LLMs
 
 This repository contains the implementation of various text compression techniques used in **NLP** preprocessing, directly tied to the research presented in our paper. The code is designed to process and transform text by applying multiple techniques in a sequential manner, as described in the article. It focuses on improving efficiency by reducing the number of tokens, stemming, lemmatizing, and normalizing input data.
 
