@@ -17,3 +17,4 @@ virtual-env/
 
 # Ignore any other files you want to exclude
 output.txt
+.DS_Store
